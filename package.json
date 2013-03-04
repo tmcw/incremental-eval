@@ -1,6 +1,6 @@
 {
   "name": "incremental-eval",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "eval javascript line by line",
   "main": "index.js",
   "scripts": {
