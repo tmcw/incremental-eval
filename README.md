@@ -1,5 +1,7 @@
 ## incremental-eval
 
+[![](http://ci.testling.com/tmcw/incremental-eval)](http://ci.testling.com/tmcw/incremental-eval)
+
 Given a string of javascript code, returns the result of running the code
 line-by-line.
 
