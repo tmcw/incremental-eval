@@ -19,3 +19,9 @@ test('using variables', function (t) {
     t.plan(1);
     t.same(incr('a = 2\na * 2'), [2, 4]);
 });
+
+test('blank line', function (t) {
+    t.plan(2);
+    t.same(incr('a = 2\n\nb = 3'), [2,,3]);
+    t.same(incr('a = 4\n\na'), [4,,4]);
+});
