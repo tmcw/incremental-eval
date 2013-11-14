@@ -5,6 +5,10 @@
 Given a string of javascript code, returns the result of running the code
 line-by-line.
 
+## install
+
+    npm install --save incremental-eval
+
 ## example
 
 ```js
