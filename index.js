@@ -1,26 +1,33 @@
-function incrementalEval(____vs, __o) {
-    __o = __o || {};
-    var ____v = ____vs.split(/\n/),
-        ____res = [];
-    for (var ____i = 0; ____i < ____v.length; ____i++) {
-        var ____line = ____v[____i];
-        if (____line) {
+var vm = require('vm');
+
+function incrementalEval(vs, o) {
+    o = o || {};
+    var v = vs.split(/\n/), res = [];
+    for (var i = 0; i < v.length; i++) {
+        var line = v[i];
+        if (line) {
             try {
-                if (____line.match(/^\s*?\/\//)) {
+                if (line.match(/^\s*?\/\//)) {
                     // skip comment lines
                 } else {
-                    with(__o) {
-                        ____res[____i] = (function(____js) {
-                            return eval(____js);
-                        })(____v.slice(0, ____i + 1).join('\n'));
+                    with (o) {
+                        res[i] = (function(js) {
+                            var scope = {};
+                            var result = vm.runInNewContext(js, scope);
+                            var afterKeys = Object.keys(this);
+                            return {
+                                value: result,
+                                scope: scope
+                            };
+                        })(v.slice(0, i + 1).join('\n'));
                     }
                 }
             } catch(e) {
-                ____res[____i] = e;
+                res[i] = e;
             }
         } // skip blank lines
     }
-    return ____res;
+    return res;
 }
 
-if (typeof module !== 'undefined') module.exports = incrementalEval;
+module.exports = incrementalEval;
