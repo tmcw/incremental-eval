@@ -1,5 +1,7 @@
 ## incremental-eval
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/tmcw/incremental-eval.svg)](https://greenkeeper.io/)
+
 [![](http://ci.testling.com/tmcw/incremental-eval.png)](http://ci.testling.com/tmcw/incremental-eval)
 
 Given a string of javascript code, returns the result of running the code
