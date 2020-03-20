@@ -12,7 +12,7 @@
     "eval"
   ],
     "devDependencies": {
-    "tape": "~0.1.5",
+    "tape": "~4.13.2",
     "tap": "~14.10.7"
   },
   "testling": {
